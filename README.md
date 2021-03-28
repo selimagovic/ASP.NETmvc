@@ -11,3 +11,10 @@ https://visualstudio.microsoft.com/downloads/
 Download .NET 5 SDK
 https://dotnet.microsoft.com/download
 
+To configure DB in Microsoft SQL server Management Studio add migration packages 
+nuget(Microsoft.EntityFrameworkCore.Tools)
+
+example code for Adding Db to your previously installed SQL Server in Package Manager Console: add-migration addDeviceDatabase 
+
+and to see changes in SQL Server use in Package Manager Console : update-Database
+
