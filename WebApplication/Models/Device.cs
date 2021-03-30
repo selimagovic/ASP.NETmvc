@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,7 +15,11 @@ namespace WebApplication.Models
         [DisplayName("Device Name")]
         [Required]
         public string DeviceName { get; set; }
-        public string DeviceType { get; set; }
+        [DisplayName("Device Type")]
+
         public int DeviceTypeId { get; set; }
+
+        [ForeignKey("DeviceTypeId")]
+        public virtual DeviceType DeviceType { get; set; }
     }
 }
