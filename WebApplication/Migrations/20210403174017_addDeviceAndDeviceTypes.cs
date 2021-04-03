@@ -2,7 +2,7 @@
 
 namespace WebApplication.Migrations
 {
-    public partial class createTablestoDB : Migration
+    public partial class addDeviceAndDeviceTypes : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,7 +25,7 @@ namespace WebApplication.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DeviceName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeviceTypeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

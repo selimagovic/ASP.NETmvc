@@ -2,7 +2,7 @@
 
 namespace WebApplication.Migrations
 {
-    public partial class addDevicePropertyValues : Migration
+    public partial class addInitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

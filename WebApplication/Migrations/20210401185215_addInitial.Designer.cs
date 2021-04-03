@@ -9,8 +9,8 @@ using WebApplication.Data;
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210330164613_addDevTypeProperties")]
-    partial class addDevTypeProperties
+    [Migration("20210401185215_addInitial")]
+    partial class addInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace WebApplication.Migrations
                     b.Property<int>("DeviceId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DeviceTypePropertyId")
+                    b.Property<int>("PropertyId")
                         .HasColumnType("int");
 
                     b.Property<string>("Value")
@@ -62,7 +62,7 @@ namespace WebApplication.Migrations
 
                     b.HasIndex("DeviceId");
 
-                    b.HasIndex("DeviceTypePropertyId");
+                    b.HasIndex("PropertyId");
 
                     b.ToTable("DevicePropertyValues");
                 });
@@ -81,7 +81,13 @@ namespace WebApplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ParentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentId")
+                        .IsUnique();
 
                     b.ToTable("DeviceTypes");
                 });
@@ -128,13 +134,24 @@ namespace WebApplication.Migrations
 
                     b.HasOne("WebApplication.Models.DeviceTypeProperties", "TypeProperties")
                         .WithMany()
-                        .HasForeignKey("DeviceTypePropertyId")
+                        .HasForeignKey("PropertyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Device");
 
                     b.Navigation("TypeProperties");
+                });
+
+            modelBuilder.Entity("WebApplication.Models.DeviceType", b =>
+                {
+                    b.HasOne("WebApplication.Models.Device", "Device")
+                        .WithOne()
+                        .HasForeignKey("WebApplication.Models.DeviceType", "ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
                 });
 
             modelBuilder.Entity("WebApplication.Models.DeviceTypeProperties", b =>

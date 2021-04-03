@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models.ViewModels
 {
-    public class DeviceVM
+    public class DeviceViewModel
     {
-        public Device Device { get; set; }
+        public Device Device { get; set; } 
         public DeviceType DeviceType { get; set; }
-        public DeviceTypeProperties typeProperties { get; set; }
-        public IEnumerable<SelectListItem> TypeDropDown { get; set; }
+        public IEnumerable<SelectListItem> SelectDeviceType { get; set; }
     }
 }

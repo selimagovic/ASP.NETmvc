@@ -13,11 +13,11 @@ namespace WebApplication.Models
         public int Id { get; set; }
         [Required]
         public string Value { get; set; }
-        [Required]
-        public int DeviceTypePropertyId { get; set; }
-        [ForeignKey("DeviceTypePropertyId")]
+
+        public int PropertyId { get; set; }
+        [ForeignKey("PropertyId")]
         public virtual DeviceTypeProperties TypeProperties { get; set; }
-        [Required]
+
         public int DeviceId { get; set; }
         [ForeignKey("DeviceId")]
         public virtual Device Device { get; set; }
