@@ -3,7 +3,7 @@
 Download Microsoft SQL Server 2019 Developer
 https://go.microsoft.com/fwlink/?linkid=866662
 
-After downloading and installing install Microsoft SQL Server Management Studio to use data bases
+After downloading and installing install Microsoft SQL Server Management Studio to use databases
 
 Download Visual Studio Community 2019 or  Visual Studio enterprise 2019 if you have key
 https://visualstudio.microsoft.com/downloads/
