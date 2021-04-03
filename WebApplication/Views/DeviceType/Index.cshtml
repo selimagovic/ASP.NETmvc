@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication.Models.DeviceType>
+@{
+    ViewData["Title"] = "Get";
+}
+
+<h1>Get Device Types</h1>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Device Type List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-controller="DeviceType" asp-action="Set">Create New Device Type</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Device Types Name</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+                {
+            <tr>
+                <td width="35%">@obj.Name</td>
+                <td width="30%">
+                    <div class="w-100 btn-group" role="group">
+                        <a class="btn btn-secondary mx-1" asp-controller="DeviceType" asp-action="Set" asp-route-Id="@obj.Id">Edit</a>
+                        <a class="btn btn-danger mx-1" asp-controller="DeviceType" asp-action="Delete" asp-route-Id="@obj.Id">Delete</a>
+                    </div>
+                </td>
+            </tr>
+                }
+        </tbody>
+
+    </table>
+    }
+    else
+    {
+    <p>No Items Created Yet</p>
+    }
+</div>
