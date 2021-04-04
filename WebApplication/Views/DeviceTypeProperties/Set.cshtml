@@ -4,26 +4,25 @@
 }
 <h1 class="text-primary">Add Device Type Properties</h1>
 <br />
-<form method="post" asp-action="Set" class="container">
-    <input asp-for="DeviceType.Id" hidden />
-    <div class="row">
-        <input type="hidden" name="count" value="1" />
-        <div class="control-group" id="fields">
-            <div class="controls" id="profs">
-                <form class="input-append" >
-                    <div id="field">
-                        <input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8" />
-                        <button id="b1" class="btn btn-dark add-more" type="button">+</button>
-                            <span asp-validation-for="DeviceTypeProperties.Name" class="text-danger"></span>
-                    </div>
-                </form>
-            </div>
-        </div>
+<div>
+    
+</div>
+<form asp-action="Set">
+    <input asp-action="DeviceType.Id" hidden />
+    <div asp-validation-summary="ModelOnly" class="text-danger">
     </div>
+
+    <div class="form-group">
+        <input class=".add-more" type="button" value="+" />
+    </div>
+    <div id="textBoxContainer">
+        
+    </div>
+
     <div class="form-group row">
         <div class="col-8 offset-2 row">
             <div class="col">
-                <button asp-action="Set" asp-controller="DeviceTypeProperties" class="btn btn-primary w-75">Submit</button>
+                <button type="submit"  class="btn btn-primary w-75">Submit</button>
             </div>
             <div class="col">
                 <a asp-action="Index" asp-controller="DeviceType" class="btn btn-secondary w-75">Back</a>

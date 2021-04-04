@@ -437,3 +437,6 @@ C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\ref\WebApplication.d
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\WebApplication.pdb
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\WebApplication.genruntimeconfig.cache
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\DeviceTypeProperties\Set.cshtml.g.cs
+C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache
+C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\DeviceType\Delete.cshtml.g.cs
+C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\Device\Delete.cshtml.g.cs

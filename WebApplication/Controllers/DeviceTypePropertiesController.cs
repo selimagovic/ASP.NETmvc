@@ -12,6 +12,7 @@ namespace WebApplication.Controllers
     public class DeviceTypePropertiesController : Controller
     {
         private readonly ApplicationDbContext _db;
+
         public DeviceTypePropertiesController(ApplicationDbContext db)
         {
             _db = db;
@@ -35,8 +36,9 @@ namespace WebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                _db.DeviceTypeProperties.Add(obj.DeviceTypeProperties);
-                _db.SaveChanges();
+                
+                //_db.DeviceTypeProperties.Add(deviceTypeProperties);
+                //_db.SaveChanges();
 
                 return RedirectToAction("Index", "DeviceType");
             }

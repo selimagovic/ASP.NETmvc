@@ -67,6 +67,41 @@ namespace WebApplication.Controllers
             }
             return View(deviceType);
         }
+        /// <summary>
+        /// Delete-Method deletes/removes Expence object to DB of Expenses
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var obj = _db.DeviceTypes.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.DeviceTypes.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        /// <summary>
+        /// Get-Delete action view
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.DeviceTypes.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
 
     }
 }
