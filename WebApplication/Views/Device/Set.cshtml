@@ -1,1 +1,40 @@
-﻿
+﻿@model WebApplication.Models.ViewModels.DeviceViewModel
+@{
+    ViewData["Title"] = "Set";
+}
+@* SET for DEVICE *@
+<h1>Create Device</h1>
+
+<form method="post" asp-action="Set">
+    @if (Model.Device != null)
+    {
+        <input asp-for="Device.Id" hidden />
+    }
+    <div class="form-group">
+        <label>Device Name</label>
+        <input asp-for="Device.Name" class="form-control" id="name">
+        <span asp-validation-for="Device.Name" class="text-danger"></span>
+        <label>Device Type</label>
+        <select asp-for="Device.DeviceTypeId" asp-items="@Model.SelectDeviceType" class="form-control">
+            <option selected>--Select Device Type--</option>
+        </select>
+        <span asp-validation-for="Device.DeviceTypeId" class="text-danger"></span>
+    </div>
+    <div class="form-group row">
+        <div class="col-8 offset-2 row">
+            <div class="col">
+                <button asp-action="Set" class="btn btn-primary w-75">Submit</button>
+            </div>
+            <div class="col">
+                <a asp-action="Index" class="btn btn-secondary w-75">Back</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@* Validation Client Side *@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

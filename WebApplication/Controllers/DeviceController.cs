@@ -10,7 +10,6 @@ namespace WebApplication.Controllers
 {
     public class DeviceController : Controller
     {
-
         private readonly ApplicationDbContext _db;
 
         public DeviceController(ApplicationDbContext db)
@@ -55,11 +54,11 @@ namespace WebApplication.Controllers
                     })
                 };
 
-                if (obj == null)
+                if (obj.Device == null)
                 {
                     return NotFound();
                 }
-                return View(obj);
+                return NotFound();
             }
             DeviceViewModel deviceViewModel = new DeviceViewModel()
             {

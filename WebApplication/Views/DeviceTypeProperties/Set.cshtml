@@ -1,28 +1,23 @@
 ﻿@model WebApplication.Models.ViewModels.DeviceViewModel
 @{
-    ViewData["Title"] = "Set";
+    ViewData["Title"] = "CreateDeviceType";
 }
-<h1 class="text-primary">Add Device Type Properties</h1>
-<br />
-<div>
-    
-</div>
-<form asp-action="Set">
-    <input asp-action="DeviceType.Id" hidden />
-    <div asp-validation-summary="ModelOnly" class="text-danger">
-    </div>
 
+<h1 class="text-center text-primary">Create Device Type Property</h1>
+
+<form method="post">
+    <input asp-for="DeviceType.Id" hidden />
     <div class="form-group">
-        <input class=".add-more" type="button" value="+" />
-    </div>
-    <div id="textBoxContainer">
-        
-    </div>
+        <button class="btn btn-info align-items-lg-end" id="btnAddField">Add New Field</button>
+        <br />
+        <div id="fields">
 
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-8 offset-2 row">
             <div class="col">
-                <button type="submit"  class="btn btn-primary w-75">Submit</button>
+                <button asp-action="Set" asp-controller="DeviceTypeProperties" class="btn btn-primary w-75">Submit</button>
             </div>
             <div class="col">
                 <a asp-action="Index" asp-controller="DeviceType" class="btn btn-secondary w-75">Back</a>
@@ -30,5 +25,25 @@
         </div>
     </div>
 </form>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
 
+    $(document).ready(function () {
+        var $fields = $('#fields');
+        $('#btnAddField').click(function (e)
+        {
+            e.preventDefault();
+            $('<br/><input asp-for="DeviceTypeProperties.Id" hidden/>').appendTo($fields);
+            $('<input asp-for="DeviceTypeProperties.Name" class="form-control" name="name"/><br/>').appendTo($fields);
+            $('<span asp-validation-for="DeviceTypeProperties.Name"" class="text-danger"></span>').appendTo($fields);
+        });
+    });
+
+</script>
+
+@* Validation Client Side *@
+@section Scripts{    
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

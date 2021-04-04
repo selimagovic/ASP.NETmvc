@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,25 @@ namespace WebApplication.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Set()
+        public IActionResult Set(int? id)
         {
-            return View();
+            if (id != null)
+            {
+                if (id == null || id == 0)
+                {
+                    return NotFound();
+                }
+                DeviceViewModel obj = new DeviceViewModel()
+                {
+                    DeviceType = _db.DeviceTypes.Find(id)
+                };
+                if (obj.DeviceType is null)
+                {
+                    return NotFound();
+                }
+                return View(obj);
+            }
+            return NotFound();
         }
         /// <summary>
         /// POST-Set 
@@ -34,15 +51,15 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult Set(DeviceViewModel obj)
         {
+           // Console.WriteLine(obj);
             if (ModelState.IsValid)
             {
-                
-                //_db.DeviceTypeProperties.Add(deviceTypeProperties);
-                //_db.SaveChanges();
+               _db.DeviceTypeProperties.Add(obj.DeviceTypeProperties);
+               _db.SaveChanges();
 
                 return RedirectToAction("Index", "DeviceType");
             }
-            return View(obj);
+            return RedirectToAction("Index","DeviceType");
         }
     }
 }
