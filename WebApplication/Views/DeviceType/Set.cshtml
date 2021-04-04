@@ -3,10 +3,13 @@
     ViewData["Title"] = "CreateDeviceType";
 }
 
-<h1>Create Device Type</h1>
+<h1 class="text-center text-primary">Create Device Type</h1>
 
-<form method="post" asp-action="Set">
-    <input asp-for="Id" hidden />
+<form method="post">
+    @if(Model != null )
+    {
+        <input asp-for="Id" hidden />
+    }
     <div class="form-group">
         <label>Device Type</label>
         <input asp-for="Name" class="form-control" id="name">
@@ -16,10 +19,10 @@
     <div class="form-group row">
         <div class="col-8 offset-2 row">
             <div class="col">
-                <button class="btn btn-info w-75">Submit</button>
+                <button asp-action="Set" class="btn btn-primary w-75">Submit</button>
             </div>
             <div class="col">
-                <button asp-action="Index" class="btn btn-danger w-75">Back</button>
+                <a asp-action="Index" class="btn btn-secondary w-75">Back</a>
             </div>
         </div>
     </div>

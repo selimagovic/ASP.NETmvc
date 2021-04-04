@@ -13,7 +13,7 @@ namespace WebApplication.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-
+        [Required]
         public int DeviceTypeId { get; set; }
         [ForeignKey("DeviceTypeId")]
         public virtual DeviceType DeviceType { get; set; }
