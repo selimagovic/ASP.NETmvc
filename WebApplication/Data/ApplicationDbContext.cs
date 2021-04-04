@@ -16,5 +16,6 @@ namespace WebApplication.Data
 
         public DbSet<Device> Devices { get; set; }
         public DbSet<DeviceType> DeviceTypes { get; set; }
+        public DbSet<DeviceTypePropertie> DeviceTypeProperties { get; set; }
     }
 }

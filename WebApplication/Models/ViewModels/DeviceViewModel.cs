@@ -11,5 +11,7 @@ namespace WebApplication.Models.ViewModels
         public Device Device { get; set; } 
         public DeviceType DeviceType { get; set; }
         public IEnumerable<SelectListItem> SelectDeviceType { get; set; }
+
+        public DeviceTypePropertie DeviceTypeProperties { get; set; }
     }
 }
