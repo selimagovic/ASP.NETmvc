@@ -440,3 +440,6 @@ C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\DeviceTy
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\DeviceType\Delete.cshtml.g.cs
 C:\Users\Selim\source\repos\WebApplication\obj\Debug\net5.0\Razor\Views\Device\Delete.cshtml.g.cs
+C:\Users\Kuca\Desktop\New folder\ASP.NETmvc\WebApplication\obj\Debug\net5.0\WebApplication.dll
+C:\Users\Kuca\Desktop\New folder\ASP.NETmvc\WebApplication\obj\Debug\net5.0\ref\WebApplication.dll
+C:\Users\Kuca\Desktop\New folder\ASP.NETmvc\WebApplication\obj\Debug\net5.0\WebApplication.pdb
